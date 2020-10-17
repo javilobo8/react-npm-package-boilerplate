@@ -1,9 +1,5 @@
-// Demo component
-// this is only example component
-
 import React from 'react';
 import PropTypes from 'prop-types';
-import './MyComponent.style';
 
 class MyComponent extends React.Component {
   constructor(props) {

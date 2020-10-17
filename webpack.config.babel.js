@@ -1,5 +1,5 @@
 import path from 'path';
-import CleanWebpackPlugin from 'clean-webpack-plugin';
+import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 const packageJson = require('./package.json');
 
 export default () => ({
@@ -31,15 +31,11 @@ export default () => ({
           }
         ]
       },
-      {
-        test: /\.(scss)$/,
-        loader: 'style-loader!css-loader!sass-loader'
-      }
     ]
   },
 
   resolve: {
-    extensions: ['.js', '.jsx', '.scss']
+    extensions: ['.js', '.jsx']
   },
 
   externals: {
@@ -47,7 +43,11 @@ export default () => ({
     reactDOM: 'react-dom'
   },
 
-  plugins: [new CleanWebpackPlugin(['dist/*.*'])],
+  plugins: [
+    new CleanWebpackPlugin({
+      cleanOnceBeforeBuildPatterns: ['dist/*.*']
+    })
+  ],
   optimization: {
     splitChunks: {
       name: 'vendor',

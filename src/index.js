@@ -1,3 +1,5 @@
-import MyComponent from './MyComponent';
+import _MyComponent from './MyComponent';
 
-export default MyComponent;
+export const MyComponent = _MyComponent
+
+export default _MyComponent;
